@@ -1,0 +1,26 @@
+﻿@model IPagedList<student>
+
+<head>
+    <link href="@Url.Content("~/Content/Bootstrap.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<form method="get" action="@Url.Action("Index")" 
+      data-otf-ajax="true" data-otf-target="#kjo">
+    <input type="search" name="searchterm" data-otf-autocomplete="@Url.Action("Autocomplete")" />
+    <input type="submit" value="Kerko"class="btn btn-primary" />
+</form>
+
+
+@*@using (Ajax.BeginForm(
+new AjaxOptions
+{
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "kjo"
+}))
+{
+<input type="search" name="searchterm"/>
+<input type="submit" value="Kerko">
+}*@
+@Html.Partial("_partial", Model)
